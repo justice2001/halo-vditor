@@ -35,3 +35,8 @@ export const plantumlRenderAdapter = {
     getCode: (el: Element) => el.textContent,
     getElements: (el: HTMLElement | Document) => el.querySelectorAll(".language-plantuml"),
 };
+
+export const haloRenderAdapter = {
+    getCode: (el:Element) => el.textContent,
+    getElements: (el: HTMLElement | Document) => el.querySelectorAll(".language-halo")
+}

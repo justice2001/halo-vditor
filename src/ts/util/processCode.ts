@@ -9,6 +9,7 @@ import {mermaidRender} from "../markdown/mermaidRender";
 import {markmapRender} from "../markdown/markmapRender";
 import {mindmapRender} from "../markdown/mindmapRender";
 import {plantumlRender} from "../markdown/plantumlRender";
+import {haloRender} from "../markdown/haloRender";
 
 export const processPasteCode = (html: string, text: string, type = "sv") => {
     const tempElement = document.createElement("div");
@@ -81,6 +82,8 @@ export const processCodeRender = (previewPanel: HTMLElement, vditor: IVditor) =>
         graphvizRender(previewPanel, vditor.options.cdn);
     } else if (language === "math") {
         mathRender(previewPanel, {cdn: vditor.options.cdn, math: vditor.options.preview.math});
+    } else if (language === "halo") {
+        haloRender(previewPanel, vditor.options.cdn)
     } else {
         highlightRender(Object.assign({}, vditor.options.preview.hljs), previewPanel, vditor.options.cdn);
         codeRender(previewPanel);

@@ -16,6 +16,7 @@ import {hasClosestByClassName, hasClosestByMatchTag} from "../util/hasClosest";
 import {hasClosestByTag} from "../util/hasClosestByHeadings";
 import {setSelectionFocus} from "../util/selection";
 import {previewImage} from "./image";
+import {haloRender} from "../markdown/haloRender";
 
 export class Preview {
     public element: HTMLElement;
@@ -232,6 +233,7 @@ export class Preview {
         plantumlRender(vditor.preview.previewElement, vditor.options.cdn);
         abcRender(vditor.preview.previewElement, vditor.options.cdn);
         mediaRender(vditor.preview.previewElement);
+        haloRender(vditor.preview.previewElement, vditor.options.cdn)
         // toc render
         const editorElement = vditor.preview.element;
         let tocHTML = vditor.outline.render(vditor);
