@@ -1,24 +1,28 @@
-<p align="center">
-<img alt="Vditor" src="https://b3log.org/images/brand/vditor-128.png" />
+# 用于halo-plugin-vditor的特殊版本vditor
 
-<br>
-易于使用的 Markdown 编辑器，为适配不同的应用场景而生
-<br><br>
-<a title="MIT" target="_blank" href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square"></a>
-<a title="npm bundle size" target="_blank" href="https://www.npmjs.com/package/vditor"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/vditor?style=flat-square&color=blueviolet"></a>
-<a title="Version" target="_blank" href="https://www.npmjs.com/package/vditor"><img src="https://img.shields.io/npm/v/vditor.svg?style=flat-square"></a><br>
-<a title="Downloads" target="_blank" href="https://www.npmjs.com/package/vditor"><img src="https://img.shields.io/npm/dt/vditor.svg?style=flat-square&color=97ca00"></a>
-<a title="jsdelivr" target="_blank" href="https://www.jsdelivr.com/package/npm/vditor"><img src="https://data.jsdelivr.com/v1/package/npm/vditor/badge"/></a>
-<a title="Hits" target="_blank" href="https://github.com/88250/hits"><img src="https://hits.b3log.org/Vanessa219/vditor.svg"></a> <br><br>
-<a title="GitHub Watchers" target="_blank" href="https://github.com/Vanessa219/vditor/watchers"><img src="https://img.shields.io/github/watchers/Vanessa219/vditor.svg?label=Watchers&style=social"></a>
-<a title="GitHub Stars" target="_blank" href="https://github.com/Vanessa219/vditor/stargazers"><img src="https://img.shields.io/github/stars/Vanessa219/vditor.svg?label=Stars&style=social"></a>
-<a title="GitHub Forks" target="_blank" href="https://github.com/Vanessa219/vditor/network/members"><img src="https://img.shields.io/github/forks/Vanessa219/vditor.svg?label=Forks&style=social"></a>
-<a title="Author GitHub Followers" target="_blank" href="https://github.com/vanessa219"><img src="https://img.shields.io/github/followers/vanessa219.svg?label=Followers&style=social"></a>
-</p>
+## ✍️ 修改了什么
 
-<p align="center">
-<a href="https://github.com/Vanessa219/vditor/blob/master/README_en_US.md">English</a> &nbsp;|&nbsp; <a href="https://b3log.org/vditor/demo/index.html">Demo</a>
-</p>
+在vditor原有渲染器的基础上加入了haloRender，在其中实现了一些拓展渲染样式，如tips、git等
+
+## 如何使用
+
+在编辑器中使用
+
+```markdown
+    ```halo
+    [info]
+    [content]
+    ```
+```
+
+即可调用haloRender进行渲染。其中的`[info]`作为标识符来指定渲染的样式。
+`[content]`则一般为渲染内容
+
+## 当前实现的功能
+
+- tips(success, danger, warn)
+  - info: `tips:success`, `tips:danger`, `tips:warn`
+  - content: 需要在tips中渲染的内容
 
 ## 💡 简介
 
