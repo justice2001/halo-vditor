@@ -13,7 +13,8 @@ export const haloRender = (element: (HTMLElement | Document) = document, cdn = C
         addStyle(`${cdn}/dist/js/halo/index.css`, "VditorHaloRenderStyle")
         addScript(`${cdn}/dist/js/halo/index.js`, "VditorHaloRender").then(() => {
             haloElement.forEach(el => {
-                el.outerHTML = HaloJs.renderHalo(el.textContent)
+                // 修补code外框
+                el.parentElement.outerHTML = HaloJs.renderHalo(haloRenderAdapter.getCode(el))
             })
         })
     }

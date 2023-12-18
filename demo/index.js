@@ -137,3 +137,4 @@ window.setLang = (language) => {
     window.vditor.destroy()
     initVditor(language)
 }
+
