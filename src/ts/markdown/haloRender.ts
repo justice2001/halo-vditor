@@ -1,23 +1,20 @@
 import {Constants} from "../constants";
 import {haloRenderAdapter} from "./adapterRender";
+import {addScript} from "../util/addScript";
+import {addStyle} from "../util/addStyle";
+
+declare const HaloJs: {
+    renderHalo: (content: string) => string
+}
 
 export const haloRender = (element: (HTMLElement | Document) = document, cdn = Constants.CDN) => {
-    haloRenderAdapter.getElements(element).forEach((el: Element) => {
-        const renderText = el.textContent
-        const lines = renderText.split("\n");
-        let doc = document.createElement("div")
-        let html = ""
-        const type = lines[0]
-        if (type.startsWith("tips")) {
-            doc.className = lines[0].replace(":","-")
-            lines.forEach((line: string, index: number) => {
-                if (index === 0) return
-                if (line) html += `<div>${line}</div>`
+    const haloElement = haloRenderAdapter.getElements(element)
+    if (haloElement.length > 0) {
+        addStyle(`${cdn}/dist/js/halo/index.css`, "VditorHaloRenderStyle")
+        addScript(`${cdn}/dist/js/halo/index.js`, "VditorHaloRender").then(() => {
+            haloElement.forEach(el => {
+                el.outerHTML = HaloJs.renderHalo(el.textContent)
             })
-        } else if (type.startsWith("expand")) {
-        }
-        doc.innerHTML = html
-        el.parentElement.insertBefore(doc, el)
-        el.remove()
-    })
+        })
+    }
 }

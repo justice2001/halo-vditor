@@ -18,6 +18,7 @@ import {speechRender} from "./ts/markdown/speechRender";
 import {previewImage} from "./ts/preview/image";
 import {setCodeTheme} from "./ts/ui/setCodeTheme";
 import {setContentTheme} from "./ts/ui/setContentTheme";
+import {haloRender}  from "./ts/markdown/haloRender";
 
 class Vditor {
 
@@ -53,6 +54,8 @@ class Vditor {
     public static mediaRender = mediaRender;
     /** 对选中的文字进行阅读 */
     public static speechRender = speechRender;
+    /** 对halo进行渲染 */
+    public static haloRender = haloRender;
     /** 对图片进行懒加载 */
     public static lazyLoadImageRender = lazyLoadImageRender;
     /** Markdown 文本转换为 HTML，该方法需使用[异步编程](https://ld246.com/article/1546828434083?r=Vaness) */

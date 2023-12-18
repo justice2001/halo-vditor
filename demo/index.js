@@ -52,7 +52,7 @@ const initVditor = (language) => {
     window.vditor = new Vditor('vditor', {
         // _lutePath: `http://192.168.31.194:9090/lute.min.js?${new Date().getTime()}`,
         _lutePath: 'src/js/lute/lute.min.js',
-        // cdn: 'http://localhost:9000',
+        cdn: 'https://test.mczhengyi.top',
         toolbar,
         lang: language,
         mode: 'sv',
