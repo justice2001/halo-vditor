@@ -14,7 +14,7 @@ export const haloRender = (element: (HTMLElement | Document) = document, cdn = C
         addScript(`${cdn}/dist/js/halo/index.js`, "VditorHaloRender").then(() => {
             haloElement.forEach(el => {
                 // 修补code外框
-                el.parentElement.outerHTML = HaloJs.renderHalo(haloRenderAdapter.getCode(el))
+                el.outerHTML = HaloJs.renderHalo(haloRenderAdapter.getCode(el))
             })
         })
     }
