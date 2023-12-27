@@ -6,6 +6,8 @@ import {hasClosestByTag} from "../util/hasClosestByHeadings";
 import {log} from "../util/log";
 import {getEditorRange, setRangeByWbr} from "../util/selection";
 import {inputEvent} from "./inputEvent";
+import {combineFootnote} from "./combineFootnote";
+
 
 export const processPaste = (vditor: IVditor, text: string) => {
     const range = getEditorRange(vditor);
@@ -17,19 +19,15 @@ export const processPaste = (vditor: IVditor, text: string) => {
         blockElement = vditor.sv.element;
     }
     let spinHTML = vditor.lute.SpinVditorSVDOM(blockElement.textContent)
-    if (spinHTML.indexOf('data-type="footnotes-link"') > -1 ||
-        spinHTML.indexOf('data-type="link-ref-defs-block"') > -1) {
-        spinHTML = "<div data-block='0'>" + spinHTML + "</div>";
-    } else {
-        spinHTML = "<div data-block='0'>" +
-            spinHTML.replace(/<span data-type="newline"><br \/><span style="display: none">\n<\/span><\/span><span data-type="newline"><br \/><span style="display: none">\n<\/span><\/span></g, '<span data-type="newline"><br /><span style="display: none">\n</span></span><span data-type="newline"><br /><span style="display: none">\n</span></span></div><div data-block="0"><') +
-            "</div>";
-    }
+    spinHTML = "<div data-block='0'>" +
+        spinHTML.replace(/<span data-type="newline"><br \/><span style="display: none">\n<\/span><\/span><span data-type="newline"><br \/><span style="display: none">\n<\/span><\/span></g, '<span data-type="newline"><br /><span style="display: none">\n</span></span><span data-type="newline"><br /><span style="display: none">\n</span></span></div><div data-block="0"><') +
+        "</div>";
     if (blockElement.isEqualNode(vditor.sv.element)) {
         blockElement.innerHTML = spinHTML;
     } else {
         blockElement.outerHTML = spinHTML;
     }
+    combineFootnote(vditor.sv.element)
     setRangeByWbr(vditor.sv.element, range);
 
     scrollCenter(vditor);
@@ -56,14 +54,9 @@ export const getSideByType = (spanNode: Node, type: string, isPrevious = true) =
 export const processSpinVditorSVDOM = (html: string, vditor: IVditor) => {
     log("SpinVditorSVDOM", html, "argument", vditor.options.debugger);
     const spinHTML = vditor.lute.SpinVditorSVDOM(html)
-    if (spinHTML.indexOf('data-type="footnotes-link"') > -1 ||
-        spinHTML.indexOf('data-type="link-ref-defs-block"') > -1) {
-        html = "<div data-block='0'>" + spinHTML + "</div>";
-    } else {
-        html = "<div data-block='0'>" +
-            spinHTML.replace(/<span data-type="newline"><br \/><span style="display: none">\n<\/span><\/span><span data-type="newline"><br \/><span style="display: none">\n<\/span><\/span></g, '<span data-type="newline"><br /><span style="display: none">\n</span></span><span data-type="newline"><br /><span style="display: none">\n</span></span></div><div data-block="0"><') +
-            "</div>";
-    }
+    html = "<div data-block='0'>" +
+        spinHTML.replace(/<span data-type="newline"><br \/><span style="display: none">\n<\/span><\/span><span data-type="newline"><br \/><span style="display: none">\n<\/span><\/span></g, '<span data-type="newline"><br /><span style="display: none">\n</span></span><span data-type="newline"><br /><span style="display: none">\n</span></span></div><div data-block="0"><') +
+        "</div>";
     log("SpinVditorSVDOM", html, "result", vditor.options.debugger);
     return html;
 };

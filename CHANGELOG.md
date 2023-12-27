@@ -12,6 +12,17 @@
 
 * [open issues](https://github.com/Vanessa219/vditor/issues)
 
+### v3.9.9 / 2024-01
+
+
+### v3.9.8 / 2023-12-26
+
+* [多语言加载失败后给出相关提示](https://github.com/Vanessa219/vditor/issues/1531) `改进功能`
+* [导出 PDF 时 CDN 配置不生效](https://github.com/Vanessa219/vditor/pull/1529) `修复缺陷`
+* [sv 模式中在脚注下方输入文本出现渲染错误](https://github.com/Vanessa219/vditor/issues/1518) `修复缺陷`
+* [KaTeX 渲染支持 macros](https://github.com/Vanessa219/vditor/issues/1519) `引入特性`
+* [简化 CDN 配置](https://github.com/Vanessa219/vditor/issues/1522) `改进功能`
+
 ### v3.9.7 / 2023-12-14
 
 * [改进带端口的超链接解析](https://github.com/Vanessa219/vditor/issues/1513) `改进功能`
