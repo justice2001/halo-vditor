@@ -1,6 +1,6 @@
 {
   "name": "@zhengyi/vditor",
-  "version": "3.9.8",
+  "version": "3.9.9",
   "description": "♏ 易于使用的 Markdown 编辑器，为适配不同的应用场景而生",
   "author": "Vanessa <v@b3log.org> (http://vanessa.b3log.org)",
   "homepage": "https://b3log.org/vditor",
@@ -15,6 +15,7 @@
     "src/assets/*"
   ],
   "dependencies": {
+    "@zhengyi/halo-render": "^1.1.0",
     "diff-match-patch": "^1.0.5"
   },
   "types": "dist/index.d.ts",

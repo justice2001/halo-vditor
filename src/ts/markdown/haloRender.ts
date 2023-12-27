@@ -4,7 +4,7 @@ import {addScript} from "../util/addScript";
 import {addStyle} from "../util/addStyle";
 
 declare const HaloJs: {
-    renderHalo: (content: string) => string
+    renderHalo: (content: string, cdn: string) => string
 }
 
 export const haloRender = (element: (HTMLElement | Document) = document, cdn = Constants.CDN) => {
@@ -14,7 +14,8 @@ export const haloRender = (element: (HTMLElement | Document) = document, cdn = C
         addScript(`${cdn}/dist/js/halo/index.js`, "VditorHaloRender").then(() => {
             haloElement.forEach(el => {
                 // 修补code外框
-                el.outerHTML = HaloJs.renderHalo(haloRenderAdapter.getCode(el))
+                console.log(cdn)
+                el.outerHTML = HaloJs.renderHalo(haloRenderAdapter.getCode(el), `${cdn}/dist`)
             })
         })
     }

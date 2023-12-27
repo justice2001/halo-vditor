@@ -7,43 +7,160 @@
   text-align: center;
   padding: 10px;
   background-color: lightpink;
-  border-radius: 6px;
+  border-radius: 3px;
+}
+.halo-render-wrapper {
+  margin: 20px 15px;
 }
 
 .tips {
-  padding: 5px 10px;
+  position: relative;
+  padding: 15px 15px;
   border-left-style: solid;
   border-left-width: 6px;
-  border-radius: 6px;
-  border-left-color: #666666;
-  background-color: #eeeeee;
+  border-radius: 3px;
+  border-left-color: #818181;
+  background-color: #F4F4F4;
+}
+.tips.tips:after {
+  font-family: "iconfont", serif !important;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 50%;
+  color: #F4F4F4;
+  background-color: #818181;
+  display: block;
+  position: absolute;
+  left: calc(-10px - 6px / 2);
+  top: 4px;
+  content: "\e77e";
 }
 .tips.tips-warn {
-  background-color: lightyellow;
-  color: darkorange;
-  border-left-color: darkorange;
+  background-color: #FFFAED;
+  color: #FF8C00;
+  border-left-color: #FF8C00;
+}
+.tips.tips-warn.tips.tips-warn:after {
+  color: #FFFAED;
+  background-color: #FF8C00;
+  content: "\e671";
 }
 .tips.tips-danger {
-  background-color: lightpink;
-  color: darkred;
-  border-left-color: darkred;
+  background-color: #FFEDED;
+  color: #C31919;
+  border-left-color: #C31919;
+}
+.tips.tips-danger.tips.tips-danger:after {
+  background-color: #C31919;
+  color: #FFEDED;
+  content: "\e671";
 }
 .tips.tips-success {
-  background-color: lightgreen;
-  color: darkgreen;
-  border-left-color: darkgreen;
+  background-color: #F2FFED;
+  color: #05B800;
+  border-left-color: #05B800;
+}
+.tips.tips-success.tips.tips-success:after {
+  background-color: #05B800;
+  color: #F2FFED;
 }
 .tips.tips-info {
-  background-color: lightblue;
-  color: #0052d9;
-  border-left-color: #0052d9;
+  background-color: #F1F7FF;
+  color: #3478CD;
+  border-left-color: #3478CD;
+}
+.tips.tips-info.tips.tips-info:after {
+  color: #F1F7FF;
+  background-color: #3478CD;
 }
 
 .git {
-  margin: 5px;
+  display: flex;
+  gap: 10px;
   border: 1px solid #ececec;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 3px;
+}
+.git .information {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.git .information .info {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.git .information .info .topics {
+  position: relative;
+  display: flex;
+  gap: 5px;
+  color: #ffffff;
+  font-size: 12px;
+  max-width: 30%;
+  overflow: hidden;
+  transition: max-width 0.2s;
+  cursor: pointer;
+}
+.git .information .info .topics:after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 30px;
+  right: 0;
+  background: linear-gradient(to right, transparent, #ffffff);
+  content: '';
+  transition: width 0.2s;
+}
+.git .information .info .topics:hover:after {
+  width: 0;
+}
+.git .information .info .topics:hover {
+  max-width: 70%;
+}
+.git .information .info .topics .topic {
+  background-color: #3478CD;
+  padding: 3px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.git .information .info .language {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.git .information .info .language .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+.git .information .info .count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.git .information .info .count .count-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.git .information .info .count .icon {
+  font-size: 18px;
+  color: #818181;
+}
+.git .information .description {
+  font-size: 14px;
+}
+.git .information .info {
+  font-size: 14px;
+  color: #999999;
 }
 .git .error {
   color: darkred;
@@ -51,15 +168,12 @@
 }
 .git .repo-name a {
   font-size: 18px;
-  color: #0052d9;
+  color: #3478CD;
   text-decoration: none;
 }
-.git .description {
-  font-size: 14px;
-  margin: 10px 0;
-}
-.git .info {
-  font-size: 14px;
-  color: #999999;
+.git .icon {
+  font-family: "iconfont", serif;
+  font-size: 24px;
+  color: #333333;
 }
 
