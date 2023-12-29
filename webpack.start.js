@@ -126,6 +126,7 @@ module.exports = {
                 {from: 'src/images', to: 'images'},
                 {from: 'src/js', to: 'js'},
                 {from: 'src/fonts', to: "fonts"},
+                {from: 'src/icons', to: 'icons'},
                 {from: 'types', to: 'types'},
             ],
         }),
