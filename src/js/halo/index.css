@@ -1,18 +1,7 @@
 .halo-render {
   margin: 5px;
 }
-.invalid-type {
-  color: red;
-  font-size: 20px;
-  text-align: center;
-  padding: 10px;
-  background-color: lightpink;
-  border-radius: 3px;
-}
-.halo-render-wrapper {
-  margin: 20px 15px;
-}
-.btn {
+.halo-render .btn {
   background-color: #3478CD;
   color: #ffffff;
   padding: 5px 8px;
@@ -22,9 +11,24 @@
   min-width: 80px;
   text-decoration: none;
 }
-.error {
+.halo-render .error {
   text-align: center;
   color: #C31919;
+}
+.halo-render .invalid-type {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+  background-color: lightpink;
+  border-radius: 3px;
+}
+.halo-render .iconfont {
+  font-family: iconfont, sans-serif;
+  font-size: 16px;
+}
+.halo-render-wrapper {
+  margin: 20px 15px;
 }
 
 .tips {
