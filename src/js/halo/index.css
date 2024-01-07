@@ -232,3 +232,64 @@
   margin-top: 5px;
 }
 
+.gallery {
+  border: 1px solid #F4F4F4;
+  border-radius: 3px;
+  padding: 10px 15px;
+}
+.gallery .title {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.gallery .title .iconfont {
+  font-size: 30px;
+  margin-right: 5px;
+}
+.gallery .image-list {
+  display: flex;
+  width: 100%;
+}
+.gallery .image-list .container .img {
+  width: auto;
+  max-width: unset;
+  border-radius: 3px;
+}
+.gallery.gallery.grid .image-list {
+  flex-wrap: wrap;
+  column-gap: 2%;
+  row-gap: 10px;
+}
+.gallery.gallery.grid .image-list .container {
+  width: 32%;
+  height: 0;
+  position: relative;
+  padding-bottom: 32%;
+}
+.gallery.gallery.grid .image-list .container .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media screen and (min-width: 1400px) {
+  .gallery.gallery.grid .image-list .container {
+    width: 23%;
+    padding-bottom: 23%;
+  }
+}
+.gallery.gallery.linear .image-list {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  width: 100%;
+  gap: 10px;
+}
+.gallery.gallery.linear .image-list .container {
+  height: 400px;
+}
+.gallery.gallery.linear .image-list .container .img {
+  height: 99%;
+}
+
