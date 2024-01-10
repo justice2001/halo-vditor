@@ -252,9 +252,9 @@
   width: 100%;
 }
 .gallery .image-list .container .img {
-  width: auto;
-  max-width: unset;
-  border-radius: 3px;
+  width: auto!important;
+  max-width: unset!important;
+  border-radius: 3px !important;
 }
 .gallery.gallery.grid .image-list {
   flex-wrap: wrap;
